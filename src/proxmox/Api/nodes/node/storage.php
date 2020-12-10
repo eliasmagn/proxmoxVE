@@ -46,16 +46,6 @@ class nodestorage
 *
 */
 
-    /**
-     * Directory index
-     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes
-     * @param $storage string
-     * @return mixed
-     */
-    public function storage($storage){
-        return new storage($this->httpClient,$this->apiURL.$storage.'/',$this->cookie);
-    }
-
 
     /**
      * GET
