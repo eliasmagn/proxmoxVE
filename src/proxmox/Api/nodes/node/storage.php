@@ -19,7 +19,7 @@ class storage
         $cookie; //Proxmox auth cookie
 
     /**
-     * nodestorage constructor.
+     * storage constructor.
      * @param $httpClient Client
      * @param $apiURL string
      * @param $ticket string
@@ -32,7 +32,7 @@ class storage
     }
 
 
-/* TODO HERE
+/* possibly TODO HERE or in ./storage/storage.php
 *
 *prunebackup
 *

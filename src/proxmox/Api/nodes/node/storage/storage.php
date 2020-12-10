@@ -3,7 +3,8 @@
  * @copyright 2020 Daniel Engelschalk <hello@mrkampf.com>
  * @copyright 2020 Elias Haisch <elias@eliashaisch.de>
  */
-namespace proxmox\Api\nodes\node\storage;
+namespace proxmox\Api\nodes\node;
+
 use GuzzleHttp\Client;
 use proxmox\Helper\connection;
 
@@ -11,14 +12,14 @@ use proxmox\Helper\connection;
  * Class version
  * @package proxmox\api\nodes\node
  */
-class content
+class storage
 {
     private $httpClient, //The http client for connection to proxmox
         $apiURL, //API url
         $cookie; //Proxmox auth cookie
 
     /**
-     * content constructor.
+     * nodestorage constructor.
      * @param $httpClient Client
      * @param $apiURL string
      * @param $ticket string
@@ -30,16 +31,27 @@ class content
 
     }
 
-
+/* possibly TODO HERE or in ../storage.php
+*
+*prunebackup
+*
+*rrd
+*
+*rrddata
+*
+*status
+*
+*upload
+*
+*/
     /**
-     * Path: /nodes/{node}/storage/{storage}/content/{volume}
-     * Get volume attributes
+     * Directory index
      * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes
-     * @param $string
-     * @return mixed|null
+     * @param $storage string
+     * @return storage
      */
-    public function volume($volume){
-        return new volume($this->httpClient,$this->apiURL.$volume.'/',$this->cookie);
+    public function storage($storage){
+        return new storage($this->httpClient,$this->apiURL.$storage.'/',$this->cookie);
     }
 
     /**
@@ -49,7 +61,7 @@ class content
     /**
      * Path: /nodes/{node}/storage
      * Get status for all datastores.
-     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage
+     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes
      * @return mixed|null
      */
     public function get(){
