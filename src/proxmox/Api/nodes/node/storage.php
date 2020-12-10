@@ -30,7 +30,7 @@ class storage
         $this->cookie = $cookie; //Save auth cookie in class variable
 
     }
-}
+
 
 /* TODO HERE
 *
@@ -60,3 +60,4 @@ class storage
     public function get(){
         return connection::processHttpResponse(connection::getAPI($this->httpClient,$this->apiURL,$this->cookie));
     }
+}
