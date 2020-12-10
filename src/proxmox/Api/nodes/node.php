@@ -14,6 +14,7 @@ use proxmox\Api\nodes\node\hardware;
 use proxmox\Api\nodes\node\lxc;
 use proxmox\Api\nodes\node\network;
 use proxmox\Api\nodes\node\qemu;
+use proxmox\Api\nodes\node\storage;
 use proxmox\Api\nodes\node\vzdump;
 use proxmox\Helper\connection;
 
@@ -121,8 +122,8 @@ class node
     }
     
     /**
-     * Storage index
-     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/node
+     * Storage index (per node).
+     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage
      * @return storage
      */
     public function storage(){
