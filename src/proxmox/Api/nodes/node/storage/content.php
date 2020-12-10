@@ -37,7 +37,7 @@ class content
 
    /**
      * List storage content
-     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/qemu/{vmid}/firewall/rules
+     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content
      * @param $content string
      * @param $vmid int
      * @return mixed|null
