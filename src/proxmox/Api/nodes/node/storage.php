@@ -26,7 +26,7 @@ class storage
      */
     public function __construct($httpClient,$apiURL,$cookie){
         $this->httpClient = $httpClient; //Save the http client from GuzzleHttp in class variable
-        $this->apiURL = $apiURL.'/api2/json/nodes/node/storage/'; //Save api url in class variable and change this to current api path
+        $this->apiURL = $apiURL; //Save api url in class variable and change this to current api path
         $this->cookie = $cookie; //Save auth cookie in class variable
 
     }
