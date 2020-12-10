@@ -12,7 +12,7 @@ use proxmox\Helper\connection;
  * Class version
  * @package proxmox\api\nodes\node
  */
-class nodestorage
+class storage
 {
     private $httpClient, //The http client for connection to proxmox
         $apiURL, //API url
