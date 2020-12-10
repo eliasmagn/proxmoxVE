@@ -1,6 +1,7 @@
 <?php
 /**
  * @copyright 2020 Daniel Engelschalk <hello@mrkampf.com>
+ * @copyright 2020 Elias Haisch <elias@eliashaisch.de>
  */
 namespace proxmox\Api\nodes\node\storage;
 
@@ -26,7 +27,7 @@ class content
      */
     public function __construct($httpClient,$apiURL,$cookie){
         $this->httpClient = $httpClient; //Save the http client from GuzzleHttp in class variable
-        $this->apiURL = $apiURL.'volume/'; //Save api url in class variable and change this to current api path
+        $this->apiURL = $apiURL.'content/'; //Save api url in class variable and change this to current api path
         $this->cookie = $cookie; //Save auth cookie in class variable
     }
 
@@ -41,10 +42,10 @@ class content
      * @param $content string
      * @param $vmid int
      * @return mixed|null
-     * 
+     * ,$content,$vmid $content="", $vmid
      */
-    public function get($content=""){
-        return connection::processHttpResponse(connection::getAPI($this->httpClient,$this->apiURL,$this->cookie,$content,$vmid));
+    public function get(){
+        return connection::processHttpResponse(connection::getAPI($this->httpClient,$this->apiURL,$this->cookie));
     }
     /**
      * Get volume attributes
@@ -52,7 +53,7 @@ class content
      * @return mixed
      */
     public function getvolume(){
-        return new volume($this->httpClient,$this->apiURL,$this->cookie);
+        return new volume($this->httpClient,$this->apiURL.'volume/',$this->cookie);
     }
 
     /**
@@ -78,7 +79,7 @@ class content
      * @return string
      */
     public function postVolume($target_node=""){
-        return connection::processHttpResponse(connection::postAPI($this->httpClient,$this->apiURL,$this->cookie,$target_node));
+        return connection::processHttpResponse(connection::postAPI($this->httpClient,$this->apiURL.'volume/',$this->cookie,$target_node));
     }
 
     /**
@@ -93,7 +94,7 @@ class content
      * @return null
      */
     public function putVolume($notes=""){
-        return connection::processHttpResponse(connection::putAPI($this->httpClient,$this->apiURL,$this->cookie,$params));
+        return connection::processHttpResponse(connection::putAPI($this->httpClient,$this->apiURL.'volume/',$this->cookie,$params));
     }
 
     /**
@@ -107,7 +108,7 @@ class content
      * @return string
      */
     public function deleteVolume($delay="2"){
-        return connection::processHttpResponse(connection::deleteAPI($this->httpClient,$this->apiURL,$this->cookie,$delay));
+        return connection::processHttpResponse(connection::deleteAPI($this->httpClient,$this->apiURL.'volume/',$this->cookie,$delay));
     }
 
 }
