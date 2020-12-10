@@ -35,9 +35,20 @@ class content
      * GET
      */
 
+   /**
+     * List storage content
+     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/qemu/{vmid}/firewall/rules
+     * @param $content string
+     * @param $vmid int
+     * @return mixed|null
+     * 
+     */
+    public function get($content=""){
+        return connection::processHttpResponse(connection::getAPI($this->httpClient,$this->apiURL,$this->cookie,$content,$vmid));
+    }
     /**
      * Get volume attributes
-     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content/{volume}
+     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content
      * @return mixed
      */
     public function getvolume(){
@@ -47,6 +58,17 @@ class content
     /**
      * POST
      */
+
+    /**
+     * Allocate disk images.
+     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content
+     * @param $format string
+     * @param $param array
+     * @return string
+     */
+    public function post($format="qcow2",$param){
+        return connection::processHttpResponse(connection::postAPI($this->httpClient,$this->apiURL,$this->cookie,$format,$param));
+    }
 
     /**
      *  Path: /nodes/{node}/storage/{storage}/content/{volume}
