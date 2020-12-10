@@ -45,7 +45,15 @@ class storage
 *upload
 *
 */
-
+    /**
+     * Directory index
+     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}
+     * @param $storage string
+     * @return storage
+     */
+    public function storage($storage){
+        return new storage($this->httpClient,$this->apiURL.$storage.'/',$this->cookie);
+    }
 
     /**
      * GET
