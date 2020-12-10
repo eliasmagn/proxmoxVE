@@ -42,7 +42,6 @@ class content
      * @param $content string
      * @param $vmid int
      * @return mixed|null
-     * ,$content,$vmid $content="", $vmid
      */
     public function get(){
         return connection::processHttpResponse(connection::getAPI($this->httpClient,$this->apiURL,$this->cookie));
@@ -91,10 +90,11 @@ class content
      * Update volume attributes
      * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content/{volume}
      * @param $notes string
+     * @param $storage string
      * @return null
      */
-    public function putVolume($notes=""){
-        return connection::processHttpResponse(connection::putAPI($this->httpClient,$this->apiURL.'volume/',$this->cookie,$params));
+    public function putVolume($notes="", $storage=""){
+        return connection::processHttpResponse(connection::putAPI($this->httpClient,$this->apiURL.'volume/',$this->cookie,$notes,$storage));
     }
 
     /**
