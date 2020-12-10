@@ -119,6 +119,16 @@ class node
     public function qemu(){
         return new qemu($this->httpClient,$this->apiURL.'qemu/',$this->cookie);
     }
+    
+    /**
+     * Storage index
+     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/node
+     * @return storage
+     */
+    public function storage(){
+        return new storage($this->httpClient,$this->apiURL.'storage/',$this->cookie);
+    }
+
 
     /**
      * Create backup.
