@@ -27,7 +27,7 @@ class content
      */
     public function __construct($httpClient,$apiURL,$cookie){
         $this->httpClient = $httpClient; //Save the http client from GuzzleHttp in class variable
-        $this->apiURL = $apiURL.'content/'; //Save api url in class variable and change this to current api path
+        $this->apiURL = $apiURL; //Save api url in class variable and change this to current api path
         $this->cookie = $cookie; //Save auth cookie in class variable
     }
 
