@@ -31,7 +31,15 @@ class content
         $this->cookie = $cookie; //Save auth cookie in class variable
     }
 
-
+    /**
+     * Directory index
+     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}
+     * @param $volid string
+     * @return storage
+     */
+    public function volume($volid){
+        return new storage($this->httpClient,$this->apiURL.$volid.'/',$this->cookie);
+    }
     /**
      * GET
      */
