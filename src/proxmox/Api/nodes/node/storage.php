@@ -4,7 +4,7 @@
  * @copyright 2020 Elias Haisch <elias@eliashaisch.de>
  */
 namespace proxmox\Api\nodes\node;
-
+use proxmox\Api\nodes\node\qemu\vmid\agent;
 use GuzzleHttp\Client;
 use proxmox\Helper\connection;
 
@@ -54,7 +54,15 @@ class storage
     public function storage($storage){
         return new storage($this->httpClient,$this->apiURL.$storage.'/',$this->cookie);
     }
-
+    /**
+     * Directory index
+     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}
+     * @param $storage string
+     * @return content
+     */
+    public function content($storage){
+        return new content($this->httpClient,$this->apiURL.$storage.'content/',$this->cookie);
+    }
     /**
      * GET
      */
