@@ -38,7 +38,7 @@ class content
      * @return storage
      */
     public function volume($volid){
-        return new storage($this->httpClient,$this->apiURL.$volid.'/',$this->cookie);
+        return new storage($this->httpClient,$this->apiURL.$volid,$this->cookie);
     }
     /**
      * GET
