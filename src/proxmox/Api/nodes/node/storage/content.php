@@ -54,14 +54,14 @@ class content
     public function get(){
         return connection::processHttpResponse(connection::getAPI($this->httpClient,$this->apiURL,$this->cookie));
     }
-    /**
-     * Get volume attributes
-     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content
-     * @return mixed
-     */
-    public function getvolume(){
-        return new volume($this->httpClient,$this->apiURL.'volume/',$this->cookie);
-    }
+    // /**
+    //  * Get volume attributes
+    //  * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content
+    //  * @return mixed
+    //  */
+    // public function getvolume(){
+    //     return new volume($this->httpClient,$this->apiURL.'volume/',$this->cookie);
+    // }
 
     /**
      * POST
@@ -77,46 +77,46 @@ class content
     public function post($format="qcow2",$param){
         return connection::processHttpResponse(connection::postAPI($this->httpClient,$this->apiURL,$this->cookie,$format,$param));
     }
+ 
+//     /**
+//      *  Path: /nodes/{node}/storage/{storage}/content/{volume}
+//      * Copy a volume. This is experimental code - do not use.
+//      * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content/{volume}
+//      * @param $target_node string 
+//      * @return string
+//      */
+//   public function postVolume($target_node=""){
+//         return connection::processHttpResponse(connection::postAPI($this->httpClient,$this->apiURL.'volume/',$this->cookie,$target_node));
+//     }
 
-    /**
-     *  Path: /nodes/{node}/storage/{storage}/content/{volume}
-	 * Copy a volume. This is experimental code - do not use.
-     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content/{volume}
-     * @param $target_node string 
-     * @return string
-     */
-    public function postVolume($target_node=""){
-        return connection::processHttpResponse(connection::postAPI($this->httpClient,$this->apiURL.'volume/',$this->cookie,$target_node));
-    }
+//     /**
+//      * PUT
+//      */
 
-    /**
-     * PUT
-     */
+//     /**
+//      * Resource Tree
+//      * Update volume attributes
+//      * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content/{volume}
+//      * @param $notes string
+//      * @param $storage string
+//      * @return null
+//      */
+//     public function putVolume($notes="", $storage=""){
+//         return connection::processHttpResponse(connection::putAPI($this->httpClient,$this->apiURL.'volume/',$this->cookie,$notes,$storage));
+//     }
 
-    /**
-     * Resource Tree
-     * Update volume attributes
-     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content/{volume}
-     * @param $notes string
-     * @param $storage string
-     * @return null
-     */
-    public function putVolume($notes="", $storage=""){
-        return connection::processHttpResponse(connection::putAPI($this->httpClient,$this->apiURL.'volume/',$this->cookie,$notes,$storage));
-    }
+//     /**
+//      * DELETE
+//      */
 
-    /**
-     * DELETE
-     */
-
-    /**
-     * Destroy the vm (also delete all used/owned volumes).
-     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content/{volume}
-     * @param $delay int
-     * @return string
-     */
-    public function deleteVolume($delay="2"){
-        return connection::processHttpResponse(connection::deleteAPI($this->httpClient,$this->apiURL.'volume/',$this->cookie,$delay));
-    }
+//     /**
+//      * Destroy the vm (also delete all used/owned volumes).
+//      * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content/{volume}
+//      * @param $delay int
+//      * @return string
+//      */
+//     public function deleteVolume($delay="2"){
+//         return connection::processHttpResponse(connection::deleteAPI($this->httpClient,$this->apiURL.'volume/',$this->cookie,$delay));
+//     }
 
 }
