@@ -56,16 +56,7 @@ class volume
      * POST
      */
 
-    /**
-     * Allocate disk images.
-     * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content
-     * @param $format string
-     * @param $param array
-     * @return string
-     */
-    public function post($format="qcow2",$param){
-        return connection::processHttpResponse(connection::postAPI($this->httpClient,$this->apiURL,$this->cookie,$format,$param));
-    }
+
 
     /**
      *  Path: /nodes/{node}/storage/{storage}/content/{volume}
