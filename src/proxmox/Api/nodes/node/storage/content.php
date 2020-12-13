@@ -38,7 +38,7 @@ class content
      * @return storage
      */
     public function volume($volid){
-        return new storage($this->httpClient,$this->apiURL.$volid,$this->cookie);
+        return new storage($this->httpClient,$this->apiURL.$volid.'/',$this->cookie);
     }
     /**
      * GET
@@ -115,7 +115,7 @@ class content
      * @param $delay int
      * @return string
      */
-    public function deleteVolume($delay="2"){
+    public function deleteVolume($delay="2",){
         return connection::processHttpResponse(connection::deleteAPI($this->httpClient,$this->apiURL.'volume/',$this->cookie,$delay));
     }
 
