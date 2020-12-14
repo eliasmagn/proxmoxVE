@@ -51,8 +51,8 @@ class content
      * @param $vmid int
      * @return mixed|null
      */
-    public function get(){
-        return connection::processHttpResponse(connection::getAPI($this->httpClient,$this->apiURL,$this->cookie));
+    public function get($vmid="",$type=""){
+        return connection::processHttpResponse(connection::getAPI($this->httpClient,$this->apiURL,$this->cookie,$vmid,$type));
     }
     // /**
     //  * Get volume attributes

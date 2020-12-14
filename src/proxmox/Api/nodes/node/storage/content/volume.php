@@ -95,8 +95,8 @@ class volume
      * @param $delay int
      * @return string
      */
-    public function delete($delay="2"){
-        return connection::processHttpResponse(connection::deleteAPI($this->httpClient,$this->apiURL,$this->cookie,$delay));
+    public function delete(){
+        return connection::processHttpResponse(connection::deleteAPI($this->httpClient,$this->apiURL,$this->cookie));
     }
 
 }
