@@ -47,12 +47,11 @@ class content
    /**
      * List storage content
      * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content
-     * @param $content string
-     * @param $vmid int
+     * @param $params array
      * @return mixed|null
      */
-    public function get(){
-        return connection::processHttpResponse(connection::getAPI($this->httpClient,$this->apiURL,$this->cookie));
+    public function get($params){
+        return connection::processHttpResponse(connection::getAPI($this->httpClient,$this->apiURL,$this->cookie,$params));
     }
     // /**
     //  * Get volume attributes
@@ -71,10 +70,10 @@ class content
      * Allocate disk images.
      * @url https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/content
      * @param $format string
-     * @param $param array
+     * @param $params array
      * @return string
      */
-    public function post($format="qcow2",$param){
+    public function post($format="qcow2",$params){
         return connection::processHttpResponse(connection::postAPI($this->httpClient,$this->apiURL,$this->cookie,$format,$param));
     }
  
